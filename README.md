@@ -1,9 +1,9 @@
 # NutrifAI - Lambda AI-Powered Diet Generator
-This repository contains an AWS Lambda function utilizing AI to generate personalized diet plans. The deployment is managed using Terraform and integrates with other AWS services.
+This repository contains an AWS Lambda function utilizing Gemini to generate personalized diet plans. The deployment is managed using Terraform and integrates with other AWS services.
 
 ## Key Features
 
-- **AWS Lambda**: Core serverless function to handle requests and generate diet plans.
+- **AWS Lambda**: Core serverless function to handle requests and generate diet plans with Gemini.
 - **AI Model**: Processes user input to generate personalized diet recommendations
 
 ## Requirements

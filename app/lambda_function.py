@@ -16,7 +16,10 @@ __diet_service: DietService = None
 
 def __setup_services():
     """
-    Initialize the NutritionistService instance if it hasn't been initialized yet.
+    Initialize the DietService instance if it hasn't been initialized yet.
+    
+    This function checks if the global __diet_service variable is None. If it is,
+    it initializes the DietService instance and assigns it to the global variable.
     """
     global __diet_service
 
@@ -28,16 +31,43 @@ def __setup_services():
 
 @router.get("/diets")
 def get_diets():
+    """
+    Handle GET requests to retrieve all diets.
+    
+    This function retrieves the user information from the router context and
+    calls the get_diets method of the DietService instance.
+    
+    Returns:
+        dict: A dictionary containing the list of diets.
+    """
     user_info = router.context.get("user")
     return __diet_service.get_diets(user_info=user_info)
 
 @router.get("/diets/<dietId>")
 def get_diet_by_id(dietId):
+    """
+    Handle GET requests to retrieve a specific diet by its ID.
+    
+    Args:
+        dietId (str): The ID of the diet to retrieve.
+    
+    Returns:
+        dict: A dictionary containing the details of the specified diet.
+    """
     user_info = router.context.get("user")
     return __diet_service.get_diets_by_id(user_info=user_info, dietId=dietId)
 
 @router.post("/diets")
 def post_diet():
+    """
+    Handle POST requests to create a new diet.
+    
+    This function retrieves the user information from the router context and
+    calls the create_diet method of the DietService instance with the request body.
+    
+    Returns:
+        dict: A dictionary containing the details of the created diet.
+    """
     user_info = router.context.get("user")
     return __diet_service.generate_diet(body=resolver.current_event.body, user_info=user_info)
 
@@ -49,9 +79,11 @@ resolver.include_router(router=router, prefix="")
 def lambda_handler(event, context=None):
     """
     AWS Lambda handler function.
+
     Args:
         event (dict): The event dictionary containing request data.
         context (object, optional): The context object containing runtime information.
+        
     Returns:
         dict: The response dictionary to be returned to API Gateway.
     """
