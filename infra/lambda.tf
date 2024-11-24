@@ -11,7 +11,8 @@ resource "aws_lambda_function" "lambda" {
   environment {
     variables = {
       "ENV" = "dev",
-      "GEMINI_API_KEY" = var.gemini_api_key
+      "GEMINI_API_KEY" = var.gemini_api_key,
+      "TZ" = "America/Sao_Paulo"
     }
   }
 }
