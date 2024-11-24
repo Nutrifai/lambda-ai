@@ -6,7 +6,7 @@ import uuid
 import datetime
 import json
 
-API_KEY = "AIzaSyD1buLRJF9meq-_EiHuSbAGC3NrTa_-XUM"
+API_KEY = "to_be_replaced"
 genai.configure(api_key=API_KEY)
 # genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 

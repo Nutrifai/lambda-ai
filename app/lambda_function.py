@@ -1,5 +1,5 @@
 import json
-from aws_lambda_powertools.event_handler import APIGatewayRestResolver, CORSConfig
+from aws_lambda_powertools.event_handler import APIGatewayHttpResolver, CORSConfig
 from aws_lambda_powertools.event_handler.api_gateway import Router
 from services.diet_service import DietService
 from services.diet_service import DietService
@@ -42,8 +42,8 @@ def post_diet():
     return __diet_service.generate_diet(body=resolver.current_event.body, user_info=user_info)
 
 
-# Initialize APIGatewayRestResolver with CORS
-resolver = APIGatewayRestResolver(cors=cors_config)
+# Initialize APIGatewayHttpResolver with CORS
+resolver = APIGatewayHttpResolver(cors=cors_config)
 resolver.include_router(router=router, prefix="")
 
 def lambda_handler(event, context=None):

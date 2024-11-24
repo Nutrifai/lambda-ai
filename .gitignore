@@ -230,5 +230,7 @@ terraform.rc
 
 # Ignore Lambda layer
 layer
+layer.zip
+code.zip
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,terraform,python
